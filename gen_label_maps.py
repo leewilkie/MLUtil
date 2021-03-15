@@ -53,7 +53,7 @@ def write_pbtxt(out_file, labels):
     for label_name in labels:
         lines.append("item {\n")
         lines.append("  id: {}\n".format(label_id))
-        lines.append("  name: {}\n".format(label_name))
+        lines.append("  name: '{}'\n".format(label_name))
         lines.append("}\n")
         label_id += 1
 
