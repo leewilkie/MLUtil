@@ -34,7 +34,7 @@ FLAGS = flags.FLAGS
 
 
 # method updated to use global 'label_dict' populated from file
-def class_text_to_int(row_label, label_list):
+def class_text_to_int(row_label):
     if row_label in label_dict:
         return label_dict[row_label]
     else:
