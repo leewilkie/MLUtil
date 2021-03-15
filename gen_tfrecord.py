@@ -103,8 +103,9 @@ def load_labels(filename):
         rows = list(reader)
 
     # iterate rows and add to dictionary
+    # (converting id to an integer)
     for row in rows:
-        label_dict[row[1]] = row[0]
+        label_dict[row[1]] = int(row[0])
 
 
 def main(_):
