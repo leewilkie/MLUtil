@@ -44,7 +44,6 @@ def main():
     args = parser.parse_args()
 
     folder = args.folder
-
     if folder == None:
         folder = os.getcwd()
 

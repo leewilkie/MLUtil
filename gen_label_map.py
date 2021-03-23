@@ -36,17 +36,6 @@ def from_csv(csv_file, labels):
             labels.add(row[3])
 
 
-def write_list(out_file, labels):
-    lines = []
-    label_id = 1
-    for label_name in labels:
-        lines.append("{},{}\n".format(label_id, label_name))
-        label_id += 1
-
-    with open(out_file, "wt") as out_file:
-        out_file.writelines(lines)
-
-
 def write_pbtxt(out_file, labels):
     lines = []
     label_id = 1
@@ -70,9 +59,6 @@ def main():
     parser.add_argument('-op', '--outpbfile', default='labelmap.pbtxt',
                         help='Output pbtxt filename (default: labelmap.pbtxt).')
 
-    parser.add_argument('-ol', '--outlistfile', default='labelmap.txt',
-                        help='Output pbtxt filename (default: labelmap.txt).')
-
     args = parser.parse_args()
 
     # print(args.infiles)
@@ -81,8 +67,6 @@ def main():
     labels = set()
     for file in args.infiles:
         from_csv(file, labels)
-
-    write_list(args.outlistfile, labels)
 
     write_pbtxt(args.outpbfile, labels)
 
